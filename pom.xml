@@ -149,7 +149,7 @@
                     </suiteXmlFiles>
                     <systemPropertyVariables>
                         <!--suppress UnresolvedMavenProperty -->
-                        <executionBrowser>drivers/chromedriver.exe</executionBrowser>
+<!--                        <executionBrowser>drivers/chromedriver.exe</executionBrowser>-->
                         <appURL>https://www.google.com.vn/?hl=vi</appURL>
                     </systemPropertyVariables>
                 </configuration>
