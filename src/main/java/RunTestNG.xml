@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Onitsuka Tiger test">
+    <parameter name="browserType" value="chrome" />
+    <parameter name="appURL"
+               value="" />
+    <parameter name="driverPath" value="drivers/"/>
+    <listeners>
+        <listener class-name="Utility.listeners.ReportListenerUtility"></listener>
+    </listeners>
+    <test name="open_google_test">
+        <classes>
+            <class name="script.testcases.OpenGoogleTest">
+                <methods>
+                    <include name="openGoogle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
