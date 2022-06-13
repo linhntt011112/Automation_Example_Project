@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Onitsuka Tiger test">
+<suite name="Test">
     <parameter name="browserType" value="chrome" />
     <parameter name="appURL"
                value="" />
