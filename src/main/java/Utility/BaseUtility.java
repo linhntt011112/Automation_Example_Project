@@ -44,6 +44,8 @@ public class BaseUtility {
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+        String a = System.getProperty("webdriver.chrome.driver");
+        System.out.println(a);
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.navigate().to(appURL);
