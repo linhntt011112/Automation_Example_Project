@@ -3,7 +3,7 @@
     <parameter name="browserType" value="" />
     <parameter name="appURL"
                value="" />
-    <parameter name="driverPath" value=""/>
+    <parameter name="driverPath" value="drivers/"/>
     <listeners>
         <listener class-name="Utility.listeners.ReportListenerUtility"></listener>
     </listeners>
