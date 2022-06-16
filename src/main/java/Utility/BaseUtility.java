@@ -1,8 +1,10 @@
 package Utility;
 
+import javax.servlet.http.HttpServletRequest;
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -47,15 +49,13 @@ public class BaseUtility {
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
-        ChromeOptions options = new ChromeOptions();   //chrome binary location
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
         System.out.println("vao1");
-        UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
-
-        System.out.println(userAgent);
+         abc = getUserAgent(HttpServletRequest request);
+         System.out.println(abc);
         WebDriver driver = new ChromeDriver(options);
         System.out.println("vao2");
         driver.get("https://www.google.com/");
@@ -63,10 +63,12 @@ public class BaseUtility {
         driver.navigate().to(appURL);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        System.out.println("vao3");
         return driver;
     }
+    private String getUserAgent(HttpServletRequest request) {
 
+       return request.getHeader("user-agent");
+    }
     // Run initializeTestBaseSetup function first when this class is called
     @Parameters({ "browserType", "appURL", "driverPath" })
     @BeforeClass
