@@ -1,6 +1,7 @@
 package Utility;
 
-import org.apache.http.client.methods.HttpGet;
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -53,11 +54,20 @@ public class BaseUtility {
         options.addArguments("--disable-dev-shm-usage");
 
         System.out.println("vao1");
-        HttpGet request = new HttpGet("https://www.google.com/");
-        String userAgent = request.getHeader("user-agent");
-        System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
+
+//         HttpGet request = new HttpGet("https://www.google.com/");
+//         String userAgent = request.getHeader("user-agent");
+//         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
 
         WebDriver driver = new ChromeDriver(options);
+        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+
+            String browserName = cap.getBrowserName();
+            System.out.println(browserName);
+            String os = cap.getPlatform().toString();
+                System.out.println(os);
+                String v = cap.getVersion().toString();
+                System.out.println(v);
         System.out.println("vao2");
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
