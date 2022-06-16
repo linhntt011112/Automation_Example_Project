@@ -60,6 +60,7 @@ public class BaseUtility {
         driver.navigate().to(appURL);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        System.out.println("vao3");
         return driver;
     }
 
