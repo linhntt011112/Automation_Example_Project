@@ -46,7 +46,15 @@ public class BaseUtility {
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
-        WebDriver driver = new ChromeDriver();
+        options.setBinary('/usr/bin/google-chrome');    //chrome binary location
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        System.out.println("vao1");
+        WebDriver driver = new ChromeDriver(options);
+        System.out.println("vao2");
+        driver.get("https://www.google.com/");
         driver.manage().window().maximize();
         driver.navigate().to(appURL);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
