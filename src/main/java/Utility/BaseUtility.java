@@ -48,8 +48,7 @@ public class BaseUtility {
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary('/usr/bin/google-chrome');    //chrome binary location
+        ChromeOptions options = new ChromeOptions();   //chrome binary location
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
