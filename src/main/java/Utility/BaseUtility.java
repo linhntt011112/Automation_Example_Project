@@ -1,7 +1,9 @@
 package Utility;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.ChromeOptions;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -46,6 +48,7 @@ public class BaseUtility {
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
+        ChromeOptions options = new ChromeOptions();
         options.setBinary('/usr/bin/google-chrome');    //chrome binary location
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
