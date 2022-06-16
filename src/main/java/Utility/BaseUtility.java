@@ -1,7 +1,6 @@
 package Utility;
 
-import javax.servlet.http.HttpServletRequest;
-
+import org.apache.http.client.methods.HttpGet;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -54,8 +53,10 @@ public class BaseUtility {
         options.addArguments("--disable-dev-shm-usage");
 
         System.out.println("vao1");
-         abc = getUserAgent(HttpServletRequest request);
-         System.out.println(abc);
+        HttpGet request = new HttpGet("https://www.google.com/");
+        String userAgent = request.getHeader("user-agent");
+        System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
+
         WebDriver driver = new ChromeDriver(options);
         System.out.println("vao2");
         driver.get("https://www.google.com/");
@@ -65,10 +66,7 @@ public class BaseUtility {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
-    private static WebDriver  getUserAgent(HttpServletRequest request) {
 
-       return request.getHeader("user-agent");
-    }
     // Run initializeTestBaseSetup function first when this class is called
     @Parameters({ "browserType", "appURL", "driverPath" })
     @BeforeClass
