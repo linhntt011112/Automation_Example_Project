@@ -65,7 +65,7 @@ public class BaseUtility {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
-    private String getUserAgent(HttpServletRequest request) {
+    private static WebDriver  getUserAgent(HttpServletRequest request) {
 
        return request.getHeader("user-agent");
     }
