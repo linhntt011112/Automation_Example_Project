@@ -53,7 +53,7 @@ public class BaseUtility {
         options.addArguments("--disable-dev-shm-usage");
 
         System.out.println("vao1");
-        String userAgent = request.getHeader("User-Agent");
+        UserAgent userAgent = UserAgent.parseUserAgentString(request.getHeader("User-Agent"));
 
         System.out.println(userAgent);
         WebDriver driver = new ChromeDriver(options);
