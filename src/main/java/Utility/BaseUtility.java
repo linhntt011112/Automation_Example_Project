@@ -51,7 +51,7 @@ public class BaseUtility {
         System.out.println("Launching Chrome browser...");
         Capabilities cap = ((RemoteWebDriver) browserDriver).getCapabilities();
         String browsername = cap.getBrowserName();
-         System.out.println(browserName);
+         System.out.println(browsername);
 
         System.out.println("Launching Chrome browser...");
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
@@ -71,14 +71,14 @@ public class BaseUtility {
 //         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
 
          driver = new ChromeDriver(options);
-Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
-
-                String browserName = cap.getBrowserName();
-                System.out.println(browserName);
-                String os = cap.getPlatform().toString();
-                System.out.println(os);
-                String v = cap.getVersion().toString();
-                System.out.println(v);
+// Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+//
+//                 String browserName = cap.getBrowserName();
+//                 System.out.println(browserName);
+//                 String os = cap.getPlatform().toString();
+//                 System.out.println(os);
+//                 String v = cap.getVersion().toString();
+//                 System.out.println(v);
 
                 System.out.println("vao test1");
         System.out.println("vao2");
