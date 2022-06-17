@@ -60,7 +60,13 @@ public class BaseUtility {
         System.out.println("vao1");
 
 
- Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+
+//         HttpGet request = new HttpGet("https://www.google.com/");
+//         String userAgent = request.getHeader("user-agent");
+//         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
+
+        WebDriver driver = new ChromeDriver(options);
+Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 
                 String browserName = cap.getBrowserName();
                 System.out.println(browserName);
@@ -70,12 +76,6 @@ public class BaseUtility {
                 System.out.println(v);
 
                 System.out.println("vao test1");
-//         HttpGet request = new HttpGet("https://www.google.com/");
-//         String userAgent = request.getHeader("user-agent");
-//         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
-
-        WebDriver driver = new ChromeDriver(options);
-
         System.out.println("vao2");
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
