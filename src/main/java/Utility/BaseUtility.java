@@ -23,14 +23,14 @@ public class BaseUtility {
     private void setDriver(String browserType, String appURL, String driverPath) {
         switch (browserType) {
             case "chrome":
-                driver = initChromeDriver(appURL, driverPath);
+                driver = initFirefoxDriver(appURL, driverPath);
                 break;
             case "firefox":
                 driver = initFirefoxDriver(appURL, driverPath);
                 break;
             default:
                 System.out.println("Browser: " + browserType + " is invalid, Launching Chrome as browser of choice...");
-                driver = initChromeDriver(appURL, driverPath);
+                driver = initFirefoxDriver(appURL, driverPath);
         }
     }
 
@@ -38,6 +38,16 @@ public class BaseUtility {
         System.out.println("Launching Firefox browser...");
         System.setProperty("webdriver.gecko.driver", driverPath + "geckodriver");
         WebDriver driver = new FirefoxDriver();
+        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+
+                        String browserName = cap.getBrowserName();
+                        System.out.println(browserName);
+                        String os = cap.getPlatform().toString();
+                        System.out.println(os);
+                        String v = cap.getVersion().toString();
+                        System.out.println(v);
+
+                        System.out.println("vao test1");
         driver.manage().window().maximize();
         driver.navigate().to(appURL);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
@@ -48,16 +58,7 @@ public class BaseUtility {
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
 
-Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 
-                String browserName = cap.getBrowserName();
-                System.out.println(browserName);
-                String os = cap.getPlatform().toString();
-                System.out.println(os);
-                String v = cap.getVersion().toString();
-                System.out.println(v);
-
-                System.out.println("vao test1");
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
@@ -75,7 +76,16 @@ Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 //         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
 
         WebDriver driver = new ChromeDriver(options);
+Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 
+                String browserName = cap.getBrowserName();
+                System.out.println(browserName);
+                String os = cap.getPlatform().toString();
+                System.out.println(os);
+                String v = cap.getVersion().toString();
+                System.out.println(v);
+
+                System.out.println("vao test1");
         System.out.println("vao2");
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
