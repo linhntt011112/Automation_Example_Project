@@ -49,9 +49,7 @@ public class BaseUtility {
 
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
-        Capabilities cap = ((RemoteWebDriver) browserDriver).getCapabilities();
-        String browsername = cap.getBrowserName();
-         System.out.println(browsername);
+
 
         System.out.println("Launching Chrome browser...");
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
@@ -64,7 +62,9 @@ public class BaseUtility {
 
         System.out.println("vao1");
 
-
+Capabilities cap = ((RemoteWebDriver) browserDriver).getCapabilities();
+        String browsername = cap.getBrowserName();
+         System.out.println(browsername);
 
 //         HttpGet request = new HttpGet("https://www.google.com/");
 //         String userAgent = request.getHeader("user-agent");
