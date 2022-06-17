@@ -44,6 +44,8 @@ public class BaseUtility {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
+      private static WebDriver browserDriver;
+
 
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
