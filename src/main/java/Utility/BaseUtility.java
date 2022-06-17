@@ -47,6 +47,11 @@ public class BaseUtility {
 
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
+        Capabilities cap = ((RemoteWebDriver) browserDriver).getCapabilities();
+        String browsername = cap.getBrowserName();
+         System.out.println(browserName);
+
+        System.out.println("Launching Chrome browser...");
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
