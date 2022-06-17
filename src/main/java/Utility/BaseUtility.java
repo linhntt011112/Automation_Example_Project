@@ -47,10 +47,21 @@ public class BaseUtility {
 
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
+                Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+
+                String browserName = cap.getBrowserName();
+                System.out.println(browserName);
+                String os = cap.getPlatform().toString();
+                System.out.println(os);
+                String v = cap.getVersion().toString();
+                System.out.println(v);
+
+                System.out.println("vao test1");
+
         System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
-           ChromeOptions options = new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -62,14 +73,7 @@ public class BaseUtility {
 //         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
 
         WebDriver driver = new ChromeDriver(options);
-        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 
-            String browserName = cap.getBrowserName();
-            System.out.println(browserName);
-            String os = cap.getPlatform().toString();
-                System.out.println(os);
-                String v = cap.getVersion().toString();
-                System.out.println(v);
         System.out.println("vao2");
         driver.get("https://www.google.com/");
         driver.manage().window().maximize();
