@@ -56,26 +56,18 @@ public class BaseUtility {
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
 
-        System.out.println("vao1");
+        driver = new ChromeDriver(options);
+        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
 
-//         HttpGet request = new HttpGet("https://www.google.com/");
-//         String userAgent = request.getHeader("user-agent");
-//         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
+        String browserName = cap.getBrowserName();
+        System.out.println(browserName);
+        String os = cap.getPlatform().toString();
+        System.out.println(os);
+        String v = cap.getVersion().toString();
+        System.out.println(v);
 
-         driver = new ChromeDriver(options);
-Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
-
-                String browserName = cap.getBrowserName();
-                System.out.println(browserName);
-                String os = cap.getPlatform().toString();
-                System.out.println(os);
-                String v = cap.getVersion().toString();
-                System.out.println(v);
-
-                System.out.println("vao test1");
-        System.out.println("vao2");
-        driver.get("https://www.google.com/");
         driver.manage().window().maximize();
+        System.out.println(appURL);
         driver.navigate().to(appURL);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);

@@ -150,8 +150,8 @@
                     <systemPropertyVariables>
                         <!--suppress UnresolvedMavenProperty -->
 <!--                        <executionBrowser>drivers/chromedriver.exe</executionBrowser>-->
-<!--                        <appURL>https://www.google.com.vn/?hl=vi</appURL>-->
-                        <appURL>${url}</appURL>
+                        <appURL>https://www.google.com.vn/?hl=vi</appURL>
+<!--                        <appURL>${url}</appURL>-->
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
