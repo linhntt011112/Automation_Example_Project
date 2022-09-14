@@ -48,7 +48,7 @@ public class BaseUtility {
 
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
-        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
+        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver-105.exe");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
         ChromeOptions options = new ChromeOptions();
