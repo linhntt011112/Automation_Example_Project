@@ -1,7 +1,11 @@
 package Utility;
 
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -41,12 +45,36 @@ public class BaseUtility {
         return driver;
     }
 
+
     private static WebDriver initChromeDriver(String appURL, String driverPath) {
         System.out.println("Launching Chrome browser...");
-        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
         String a = System.getProperty("webdriver.chrome.driver");
         System.out.println(a);
-        WebDriver driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        System.out.println("vao1");
+
+//         HttpGet request = new HttpGet("https://www.google.com/");
+//         String userAgent = request.getHeader("user-agent");
+//         System.out.println(userAgent.getBrowser().getName() + " " + userAgent.getBrowserVersion());
+
+         driver = new ChromeDriver(options);
+Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+
+                String browserName = cap.getBrowserName();
+                System.out.println(browserName);
+                String os = cap.getPlatform().toString();
+                System.out.println(os);
+                String v = cap.getVersion().toString();
+                System.out.println(v);
+
+                System.out.println("vao test1");
+        System.out.println("vao2");
+        driver.get("https://www.google.com/");
         driver.manage().window().maximize();
         driver.navigate().to(appURL);
         driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
