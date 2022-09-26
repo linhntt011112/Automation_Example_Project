@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test">
-    <parameter name="browserType" value="" />
-    <parameter name="appURL"
+    <parameter name="browserType" value="chrome" />
+    <parameter name="URLs"
                value="" />
     <parameter name="driverPath" value="drivers/"/>
     <listeners>
