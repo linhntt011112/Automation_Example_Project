@@ -1,13 +1,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test">
     <parameter name="browserType" value="chrome" />
-    <parameter name="URLs"
+    <parameter name="BaseURL"
+               value="" />
+    <parameter name="WebIDTH"
+               value="" />
+    <parameter name="WebIDSG"
+               value="" />
+    <parameter name="WebIDMY"
                value="" />
     <parameter name="driverPath" value="drivers/"/>
     <listeners>
         <listener class-name="Utility.listeners.ReportListenerUtility"></listener>
     </listeners>
-    <test name="open_google_test">
+    <test name="open_google_test1">
         <classes>
             <class name="script.testcases.OpenGoogleTest">
                 <methods>

@@ -8,16 +8,36 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class BaseUtility {
     private static WebDriver driver;
-    List<String> URLitems;
+    public static String browserType_;
+    public static String driverPath_;
+    public static List<String> URLitems = new ArrayList<>();
 
     public static WebDriver getDriver() {
         return driver;
+    }
+
+    public static WebDriver getDriverPerURL(String appURL) {
+        WebDriver localDriver;
+        switch (browserType_) {
+            case "chrome":
+                localDriver = initChromeDriver(appURL, driverPath_);
+                break;
+            case "firefox":
+                localDriver = initFirefoxDriver(appURL, driverPath_);
+                break;
+            default:
+                System.out.println("Browser: " + browserType_ + " is invalid, Launching Chrome as browser of choice...");
+                localDriver = initChromeDriver(appURL, driverPath_);
+        }
+
+        return localDriver;
     }
 
     private void setDriver(String browserType, String appURL, String driverPath) {
@@ -51,7 +71,7 @@ public class BaseUtility {
         String os = System.getProperty("os.name");
         System.out.println(os);
         if (os.contains("Windows")) {
-            System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver-106.exe");
             System.out.println("appURL: " + appURL);
             driver = new ChromeDriver();
         }
@@ -77,13 +97,17 @@ public class BaseUtility {
     }
 
     // Run initializeTestBaseSetup function first when this class is called
-    @Parameters({ "browserType", "URLs", "driverPath" })
+    @Parameters({ "browserType", "BaseURL", "driverPath", "WebIDTH", "WebIDSG", "WebIDMY"})
     @BeforeClass
-    public void initializeTestBaseSetup(String browserType, String URLs, String driverPath) {
-        URLitems = Arrays.asList(URLs.split("\\s*,\\s*"));
+    public void initializeTestBaseSetup(String browserType, String BaseURL, String driverPath, String WebIDTH, String WebIDSG, String WebIDMY) {
+        if (WebIDTH.isEmpty() == false) URLitems.add(BaseURL + WebIDTH);
+        if (WebIDSG.isEmpty() == false) URLitems.add(BaseURL + WebIDSG);
+        if (WebIDMY.isEmpty() == false) URLitems.add(BaseURL + WebIDMY);
+        for (int i = 0; i < URLitems.size(); i++) {
+            System.out.println(URLitems.get(i));
+        }
         try {
             // Khởi tạo driver và browser
-//            System.out.println(URLitems.get(0));
             setDriver(browserType, URLitems.get(0), driverPath);
         } catch (Exception e) {
             System.out.println("Error..." + e.getStackTrace());

@@ -150,8 +150,18 @@
                     <systemPropertyVariables>
                         <!--suppress UnresolvedMavenProperty -->
 <!--                        <executionBrowser>drivers/chromedriver.exe</executionBrowser>-->
-                        <URLs>https://www.google.com.vn/?hl=vi</URLs>
-<!--                        <URLs>${url}</URLs>-->
+<!--                        <URLs>https://www.google.com.vn/?hl=vi</URLs>-->
+<!--                            <BaseURL>https://www.onitsukatiger.com/</BaseURL>-->
+                            <BaseURL>${BaseURL}</BaseURL>
+                            <!--suppress UnresolvedMavenProperty -->
+<!--                            <WebIDTH>th/en-th/customer/account/login/</WebIDTH>-->
+                            <WebIDTH>${WebIDTH}</WebIDTH>
+                            <!--suppress UnresolvedMavenProperty -->
+<!--                            <WebIDSG>sg/en-sg/customer/account/login/</WebIDSG>-->
+                            <WebIDSG>${WebIDSG}</WebIDSG>
+                            <!--suppress UnresolvedMavenProperty -->
+<!--                            <WebIDMY>sg/en-sg/customer/account/login/</WebIDMY>-->
+                            <WebIDMY>${WebIDMY}</WebIDMY>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
