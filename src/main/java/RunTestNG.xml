@@ -2,7 +2,7 @@
 <suite name="Test">
     <parameter name="browserType" value="chrome" />
     <parameter name="BaseURL"
-               value="https://www.onitsukatiger.com/" />
+               value="" />
     <parameter name="TH"
                value="" />
     <parameter name="SG"

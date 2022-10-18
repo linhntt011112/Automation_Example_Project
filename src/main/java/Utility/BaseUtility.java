@@ -103,15 +103,15 @@ public class BaseUtility {
         if (TH.isEmpty() == false) URLitems.add(BaseURL + TH);
         if (SG.isEmpty() == false) URLitems.add(BaseURL + SG);
         if (MY.isEmpty() == false) URLitems.add(BaseURL + MY);
-//        for (int i = 0; i < URLitems.size(); i++) {
-//            System.out.println(URLitems.get(i));
-//        }
-        try {
-            // Khởi tạo driver và browser
-            setDriver(browserType, URLitems.get(0), driverPath);
-        } catch (Exception e) {
-            System.out.println("Error..." + e.getStackTrace());
+        for (int i = 0; i < URLitems.size(); i++) {
+            System.out.println(URLitems.get(i));
         }
+//        try {
+//            // Khởi tạo driver và browser
+//            setDriver(browserType, URLitems.get(0), driverPath);
+//        } catch (Exception e) {
+//            System.out.println("Error..." + e.getStackTrace());
+//        }
     }
 
     @AfterClass
