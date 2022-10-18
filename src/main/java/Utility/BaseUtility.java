@@ -77,11 +77,11 @@ public class BaseUtility {
         }
         else {
             System.setProperty("webdriver.chrome.driver", driverPath + "chromedriver");
-            ChromeOptions options = new ChromeOptions();   //chrome binary location
-            options.addArguments("--headless");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            driver = new ChromeDriver(options);
+//             ChromeOptions options = new ChromeOptions();   //chrome binary location
+//             options.addArguments("--headless");
+//             options.addArguments("--no-sandbox");
+//             options.addArguments("--disable-dev-shm-usage");
+            driver = new ChromeDriver();
         }
         System.out.println("appURL: " + appURL);
         driver.manage().window().maximize();
