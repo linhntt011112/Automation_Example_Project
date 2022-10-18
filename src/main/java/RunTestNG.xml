@@ -2,12 +2,12 @@
 <suite name="Test">
     <parameter name="browserType" value="chrome" />
     <parameter name="BaseURL"
+               value="https://www.onitsukatiger.com/" />
+    <parameter name="TH"
                value="" />
-    <parameter name="WebIDTH"
+    <parameter name="SG"
                value="" />
-    <parameter name="WebIDSG"
-               value="" />
-    <parameter name="WebIDMY"
+    <parameter name="MY"
                value="" />
     <parameter name="driverPath" value="drivers/"/>
     <listeners>
