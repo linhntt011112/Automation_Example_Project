@@ -83,7 +83,7 @@ public class BaseUtility {
             options.addArguments("--disable-dev-shm-usage");
             driver = new ChromeDriver(options);
         }
-        System.out.println("appURL: " + appURL);
+//        System.out.println("appURL: " + appURL);
         driver.manage().window().maximize();
 
         driver.navigate().to(appURL);
@@ -97,15 +97,15 @@ public class BaseUtility {
     }
 
     // Run initializeTestBaseSetup function first when this class is called
-    @Parameters({ "browserType", "BaseURL", "driverPath", "WebIDTH", "WebIDSG", "WebIDMY"})
+    @Parameters({ "browserType", "BaseURL", "driverPath", "TH", "SG", "MY"})
     @BeforeClass
-    public void initializeTestBaseSetup(String browserType, String BaseURL, String driverPath, String WebIDTH, String WebIDSG, String WebIDMY) {
-        if (WebIDTH.isEmpty() == false) URLitems.add(BaseURL + WebIDTH);
-        if (WebIDSG.isEmpty() == false) URLitems.add(BaseURL + WebIDSG);
-        if (WebIDMY.isEmpty() == false) URLitems.add(BaseURL + WebIDMY);
-        for (int i = 0; i < URLitems.size(); i++) {
-            System.out.println(URLitems.get(i));
-        }
+    public void initializeTestBaseSetup(String browserType, String BaseURL, String driverPath, String TH, String SG, String MY) {
+        if (TH.isEmpty() == false) URLitems.add(BaseURL + TH);
+        if (SG.isEmpty() == false) URLitems.add(BaseURL + SG);
+        if (MY.isEmpty() == false) URLitems.add(BaseURL + MY);
+//        for (int i = 0; i < URLitems.size(); i++) {
+//            System.out.println(URLitems.get(i));
+//        }
         try {
             // Khởi tạo driver và browser
             setDriver(browserType, URLitems.get(0), driverPath);

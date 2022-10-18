@@ -21,25 +21,17 @@ public class OpenGoogleTest extends BaseUtility{
     public void setUp() {
         driver = getDriver();
         jsonUtility = new JSONUtility();
-        System.out.println(getAllURLs());
+//        System.out.println(getAllURLs());
     }
 
-    @DataProvider(name = "testDriver")
-    public Object[][] createDrivers(){
-        Object[][] drivers = new Object[URLitems.size()][1];
-        for (int i=0; i < URLitems.size();  i++){
-            drivers[i][0] = getDriverPerURL(URLitems.get(i));
+    @Test(priority = 1)
+    public void openGoogle() throws Exception {
+        openGoogleFactory = new OpenGoogleFactory(driver);
+        for (int i = 0; i < getAllURLs().size();  i++) {
+            String urlSite = getAllURLs().get(i);
+            System.out.println(urlSite);
         }
-
-        return drivers;
-    }
-
-
-    @Test(priority = 1, dataProvider = "testDriver")
-    public void openGoogle(WebDriver driver_) throws Exception {
-        openGoogleFactory = new OpenGoogleFactory(driver_);
         Thread.sleep(2000);
-        driver_.quit();
     }
 
     @AfterMethod
